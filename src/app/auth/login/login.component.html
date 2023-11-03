@@ -1,0 +1,52 @@
+<div class="tui-container tat--flex tat--justify-center">
+  <div class="form-wrapper">
+    <h1 class="tat--mb-8">
+      <span class="tat--font-semibold tat--text-primary">Войдите</span>
+      в Ваш аккаунт
+    </h1>
+
+    <form (ngSubmit)="loginForm.valid && submit()" [formGroup]="loginForm">
+      <tui-notification status="info">
+        Используйте логин <b>admin</b> и пароль <b>demo</b>.
+      </tui-notification>
+
+      <tui-notification *ngIf="showLoginError$ | async" class="tat--mt-4" status="error">
+        Данные неверны
+      </tui-notification>
+
+      <div class="tui-form__row">
+        <tui-input formControlName="username">
+          Логин <span class="tui-required"></span>
+        </tui-input>
+      </div>
+      <div class="tui-form__row">
+        <tui-input-password formControlName="password">
+          Пароль <span class="tui-required"></span>
+        </tui-input-password>
+      </div>
+
+      <div class="tui-form__buttons tat--block">
+        <div class="tui-row">
+            <div class="tui-col_6">
+              <button
+                [disabled]="!!(nextTrySeconds$ | async) || !!(isLoading$ | async)"
+                [showLoader]="!!(isLoading$ | async)"
+                class="tui-form__button"
+                size="m"
+                tuiButton
+                type="submit"
+              >
+                Вход
+              </button>
+            </div>
+            <div class="tui-col_6">
+              <tui-loader [size]="'xs'" *ngIf="(nextTrySeconds$ | async) as seconds"
+                          [textContent]="seconds">
+                ПОДОЖДИТЕ
+              </tui-loader>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

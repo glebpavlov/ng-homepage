@@ -1,0 +1,59 @@
+.content {
+  height: 100%;
+  width: 100%;
+
+  tat-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .main-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    main {
+      background-color: #f4f3f7;
+      position: relative;
+      z-index: 0;
+      margin-top: 4rem;
+      flex: 1 0 auto;
+      overflow: hidden;
+      padding-bottom: 10px;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+
+    tat-footer {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+canvas#grain {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tat-phhhh {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 3;
+
+  button {
+    animation: circles linear 1s infinite;
+  }
+}
+

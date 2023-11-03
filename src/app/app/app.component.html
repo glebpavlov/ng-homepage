@@ -1,0 +1,53 @@
+<tui-root class="content">
+
+  <ng-template
+    [tuiAlertOptions]="{label: 'Вы всё раздолбали!', autoClose: false, hasCloseButton: false, status: 'error'}"
+    [(tuiAlert)]="statusProxy[phhhEnum.Touched]">
+    <pre><code class="tat-dots"># rm -rf /* </code></pre>
+
+
+    <div style="color: var(--tui-base-05); font-size: 8px">код - шутка. не выполнять!</div>
+    <button
+      appearance="mono"
+      size="s"
+      tuiButton
+      class="tui-space_top-2"
+      (click)="phhhStatus = phhhEnum.Waiting"
+    >
+      О нет!
+    </button>
+  </ng-template>
+
+  <ng-template
+    [tuiAlertOptions]="{label: 'Что будем делать?!', autoClose: false, hasCloseButton: false, status: 'warning'}"
+    [(tuiAlert)]="statusProxy[phhhEnum.Waiting]">
+    Попробуйте нажать ещё раз!
+  </ng-template>
+
+  <ng-template
+    [tuiAlertOptions]="{label: '', autoClose: 10000, hasCloseButton: false, status: 'info'}"
+    [(tuiAlert)]="statusProxy[phhhEnum.End]">
+    Уберу-ка я кнопку, пока еще что-то не сломали!
+  </ng-template>
+
+  <canvas #grain id="grain"></canvas>
+  <div *ngIf="phhhStatus === phhhEnum.Untouched || phhhStatus === phhhEnum.Waiting" class="tat-phhhh">
+    <button
+      appearance="textfield"
+      tuiButton
+      type="button"
+      (click)="onClickDontTouch()"
+    >
+      <ng-container *ngIf="phhhStatus === phhhEnum.Untouched">НЕ НАЖИМАТЬ!</ng-container>
+      <ng-container *ngIf="phhhStatus === phhhEnum.Waiting">Понятно.. почините скорее!</ng-container>
+    </button>
+  </div>
+  <tat-header></tat-header>
+  <div class="main-content">
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+
+    <tat-footer></tat-footer>
+  </div>
+</tui-root>
