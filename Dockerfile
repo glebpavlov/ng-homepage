@@ -1,7 +1,7 @@
 ### STAGE 1:BUILD ###
 FROM node:18.12 AS build
 WORKDIR /dist/src/app
-RUN npm cache clean --force
+RUN export NODE_OPTIONS="--max-old-space-size=8192"
 COPY . .
 RUN yarn install
 RUN yarn run build:prod
