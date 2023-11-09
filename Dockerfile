@@ -1,8 +1,9 @@
 ### STAGE 1:BUILD ###
-FROM node:18.12 AS build
+FROM node:20.9.0 AS build
 WORKDIR /dist/src/app
 COPY . .
-RUN export NODE_OPTIONS="--max-old-space-size=8192" && yarn install
+RUN yarn config set network-timeout 300000
+RUN yarn install
 RUN export NODE_OPTIONS="--max-old-space-size=8192" && yarn run build:prod
 
 
