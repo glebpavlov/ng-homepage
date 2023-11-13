@@ -1,8 +1,10 @@
-const { version } = require('../../package.json');
+declare const APP_VERSION: string;
+declare const LAST_MODIFIED: string;
 
 export const environment = {
   production: true,
-  appVersion: version,
+  appVersion: `${APP_VERSION}`,
+  lastModified: LAST_MODIFIED,
 
   // Replace this with your server API URL
   // We assigned it to empty string for the Fake API

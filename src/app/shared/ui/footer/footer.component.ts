@@ -8,8 +8,8 @@ import { ConfigService } from '../../../core/services';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  readonly now = new Date();
   readonly version = this.configService.getVersion();
+  readonly lastModified = this.configService.getLastModified();
 
   constructor(private configService: ConfigService) {}
 }

@@ -30,6 +30,13 @@ export class ConfigService {
   }
 
   /**
+   * Returns app's last commit
+   */
+  getLastModified(): string {
+    return environment.lastModified;
+  }
+
+  /**
    * Returns the server's host url
    */
   getAPIUrl(): string {

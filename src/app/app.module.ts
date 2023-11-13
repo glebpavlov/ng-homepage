@@ -15,7 +15,6 @@ import { AppComponent } from './app/app.component';
 import { CoreModule } from './core/core.module';
 import { FooterModule } from './shared/ui/footer/footer.module';
 import { HeaderModule } from './shared/ui/header/header.module';
-import { TuiTilesModule } from "@taiga-ui/kit";
 
 @NgModule({
   declarations: [AppComponent],

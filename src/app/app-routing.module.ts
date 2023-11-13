@@ -20,6 +20,11 @@ const routes: Routes = [
       import('./features/secret/secret.module').then(m => m.SecretModule),
   },
   {
+    path: 'samples',
+    loadChildren: () =>
+      import('./features/samples/samples.module').then(m => m.SamplesModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
@@ -28,8 +33,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'enabled'
     }),
   ],
   exports: [RouterModule],
