@@ -6,7 +6,7 @@ import { map, tap } from "rxjs/operators";
 import { AuthFacade } from '../store/auth.facade';
 
 @Component({
-  selector: 'tat-login',
+  selector: 'nh-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

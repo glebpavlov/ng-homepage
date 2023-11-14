@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "tat",
+      "prefix": "nh",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",

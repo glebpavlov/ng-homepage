@@ -1,11 +1,11 @@
 <header>
-  <div class="tat--flex tat--items-center">
+  <div class="nh--flex nh--items-center">
     <!-- BEGIN: Menu Dropdown -->
-    <div class="tat--inline lg:tat--hidden">
+    <div class="nh--inline lg:nh--hidden">
       <tui-hosted-dropdown [content]="dropdownMenu">
         <button
           appearance="flat"
-          class="tat--mr-2"
+          class="nh--mr-2"
           icon="tuiIconAlignJustifyLarge"
           size="m"
           tuiIconButton
@@ -32,17 +32,17 @@
     <!-- END: Menu Dropdown -->
 
     <!-- BEGIN: Title -->
-    <a class="tat--flex tat--items-center" routerLink="/about">
+    <a class="nh--flex nh--items-center" routerLink="/about">
       <img class="logo-icon" src="/assets/logo.svg" />
-      <span class="tat--text-xl tat--font-semibold">
-        <span class="tat--hidden md:tat--inline">Какой-то сайт на Angular</span>
-        <span class="tat--inline md:tat--hidden">Какой-то сайт</span>
+      <span class="nh--text-xl nh--font-semibold">
+        <span class="nh--hidden md:nh--inline">Какой-то сайт на Angular</span>
+        <span class="nh--inline md:nh--hidden">Какой-то сайт</span>
       </span>
     </a>
     <!-- END: Title -->
 
     <!-- BEGIN: Main menu items -->
-    <div class="menu-items tat--hidden lg:tat--inline">
+    <div class="menu-items nh--hidden lg:nh--inline">
       <a
         #rla="routerLinkActive"
         *ngFor="let item of menuItems"
@@ -59,13 +59,13 @@
     <!-- END: Main menu items -->
   </div>
 
-  <div class="tat--flex tat--items-center">
+  <div class="nh--flex nh--items-center">
     <!-- BEGIN: Auth user menu -->
     <div *ngIf="authUser$ | async as user; else login">
       <tui-hosted-dropdown [content]="userDropdown" tuiDropdownAlign="left">
         <tui-avatar
           [text]="user.firstName + ' ' + user.lastName"
-          class="tat--cursor-pointer"
+          class="nh--cursor-pointer"
         ></tui-avatar>
       </tui-hosted-dropdown>
       <ng-template #userDropdown>
@@ -73,7 +73,7 @@
           <tui-opt-group [label]="user.firstName + ' ' + user.lastName">
             <button (click)="logout()" tuiOption>
               <span>
-                <tui-svg class="tat--mr-2" src="tuiIconLogOutLarge"></tui-svg>
+                <tui-svg class="nh--mr-2" src="tuiIconLogOutLarge"></tui-svg>
                 Выход
               </span>
             </button>
@@ -98,7 +98,7 @@
     <!-- BEGIN: Github link -->
     <a
       tuiHint="Исходный код"
-      class="tat--ml-4 tat--text-2xl"
+      class="nh--ml-4 nh--text-2xl"
       href="https://github.com/glebpavlov/test-alliance-taiga"
       rel="noopener noreferrer"
       target="_blank"

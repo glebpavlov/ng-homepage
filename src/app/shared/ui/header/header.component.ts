@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AuthFacade } from '../../../auth/store/auth.facade';
 
 @Component({
-  selector: 'tat-header',
+  selector: 'nh-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

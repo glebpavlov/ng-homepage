@@ -11,7 +11,7 @@ html, body {
     cursor: url(/assets/cursor.svg) 0 0, default !important;
   }
 
-  a, button, .tat--cursor-pointer {
+  a, button, .nh--cursor-pointer {
     &, * {
       cursor: url(/assets/pointer.svg) 0 0, pointer !important;
     }
@@ -63,7 +63,7 @@ html, body {
 }
 
 
-.tat-dots {
+.nh-dots {
   &:after {
     overflow: hidden;
     display: inline-block;

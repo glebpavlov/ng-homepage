@@ -1,9 +1,9 @@
 .form-wrapper {
-  @apply tat--mt-10 tat--w-10/12 md:tat--w-1/2;
+  @apply nh--mt-10 nh--w-10/12 md:nh--w-1/2;
 
   form {
     background-color: white;
     box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%);
-    @apply tat--mt-4 tat--rounded-lg tat--p-8;
+    @apply nh--mt-4 nh--rounded-lg nh--p-8;
   }
 }

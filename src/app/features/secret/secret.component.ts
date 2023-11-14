@@ -4,7 +4,7 @@ import { AuthFacade } from '../../auth/store/auth.facade';
 import { USERS } from '../../core/fake-api';
 
 @Component({
-  selector: 'tat-secured-feat',
+  selector: 'nh-secured-feat',
   templateUrl: './secret.component.html',
 })
 export class SecretComponent {

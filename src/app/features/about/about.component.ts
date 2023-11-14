@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tat-about',
+  selector: 'nh-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })

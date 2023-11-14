@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'tat--',
+  prefix: 'nh--',
   important: true,
   content: ['./src/**/*.{html,ts}'],
   theme: {

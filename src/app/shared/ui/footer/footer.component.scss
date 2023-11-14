@@ -1,6 +1,6 @@
 footer {
-  @apply tat--px-6
-  tat--py-4;
+  @apply nh--px-6
+  nh--py-4;
 
   .links {
     a {
@@ -15,7 +15,7 @@ footer {
       span {
         font-size: 14px;
         padding: 0 0 0 3px;
-        @apply tat--hidden md:tat--inline;
+        @apply nh--hidden md:nh--inline;
       }
     }
   }
