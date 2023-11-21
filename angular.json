@@ -30,7 +30,6 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
               "src/assets",
               {
                 "input": "",
@@ -90,10 +89,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "test-alliance-taiga:build:production"
+              "buildTarget": "test-alliance-taiga:build:production"
             },
             "development": {
-              "browserTarget": "test-alliance-taiga:build:development"
+              "buildTarget": "test-alliance-taiga:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "test-alliance-taiga:build"
+            "buildTarget": "test-alliance-taiga:build"
           }
         },
         "test": {

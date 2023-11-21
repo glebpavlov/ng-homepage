@@ -15,6 +15,8 @@ import { AppComponent } from './app/app.component';
 import { CoreModule } from './core/core.module';
 import { FooterModule } from './shared/ui/footer/footer.module';
 import { HeaderModule } from './shared/ui/header/header.module';
+import { provideMarkdown } from "ngx-markdown";
+import { HttpClient, provideHttpClient } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +42,6 @@ import { HeaderModule } from './shared/ui/header/header.module';
     TuiButtonModule,
     TuiSvgModule
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -10,8 +10,9 @@ import { AuthFacade } from '../../../auth/store/auth.facade';
 })
 export class HeaderComponent {
   readonly menuItems = [
-    { link: '/about', label: 'Эбаут ', icon: 'tuiIconInfoLarge' },
+    { link: '/about', label: 'Эбаут', icon: 'tuiIconInfoLarge' },
     { link: '/secret', label: 'Секретная зона', icon: 'tuiIconLockLarge' },
+    { link: '/samples', label: 'Примеры', icon: 'tuiIconCodeLarge' },
   ];
   authUser$ = this.authFacade.user$;
 

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuardService } from './auth/guards';
+import { provideMarkdown } from "ngx-markdown";
+import { HttpClient, provideHttpClient } from "@angular/common/http";
 
 const routes: Routes = [
   {
@@ -11,13 +13,14 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
+    loadComponent: () => import('./features/about/about.component').then(m => m.AboutComponent),
+    providers: [provideHttpClient(), provideMarkdown({ loader: HttpClient })]
   },
   {
     path: 'secret',
     canActivate: [AuthGuardService],
-    loadChildren: () =>
-      import('./features/secret/secret.module').then(m => m.SecretModule),
+    loadComponent: () =>
+      import('./features/secret/secret.component').then(c => c.SecretComponent),
   },
   {
     path: 'samples',
@@ -38,4 +41,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
