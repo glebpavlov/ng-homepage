@@ -1,5 +1,11 @@
 declare const APP_VERSION: string;
 declare const LAST_MODIFIED: string;
+
+// @ts-ignore
+globalThis.APP_VERSION = 'test'
+// @ts-ignore
+globalThis.LAST_MODIFIED = '22322';
+
 export const environment = {
   production: false,
   appVersion: `${APP_VERSION}-dev`,

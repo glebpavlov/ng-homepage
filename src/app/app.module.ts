@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   TuiAlertModule,
@@ -16,7 +16,7 @@ import { CoreModule } from './core/core.module';
 import { FooterModule } from './shared/ui/footer/footer.module';
 import { HeaderModule } from './shared/ui/header/header.module';
 import { provideMarkdown } from "ngx-markdown";
-import { HttpClient, provideHttpClient } from "@angular/common/http";
+import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,5 +43,9 @@ import { HttpClient, provideHttpClient } from "@angular/common/http";
     TuiSvgModule
   ],
   bootstrap: [AppComponent],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withFetch())
+  ],
 })
 export class AppModule {}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "test-alliance-taiga": {
+    "ng-homepage": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js"
             },
-            "outputPath": "dist/test-alliance-taiga",
+            "outputPath": "dist/ng-homepage/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -89,10 +89,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "test-alliance-taiga:build:production"
+              "buildTarget": "ng-homepage:build:production"
             },
             "development": {
-              "buildTarget": "test-alliance-taiga:build:development"
+              "buildTarget": "ng-homepage:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "test-alliance-taiga:build"
+            "buildTarget": "ng-homepage:build"
           }
         },
         "test": {
@@ -114,6 +114,67 @@
           "options": {
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ng-homepage/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "ng-homepage:build:development",
+              "serverTarget": "ng-homepage:server:development"
+            },
+            "production": {
+              "browserTarget": "ng-homepage:build:production",
+              "serverTarget": "ng-homepage:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-homepage:build:production",
+              "serverTarget": "ng-homepage:server:production"
+            },
+            "development": {
+              "browserTarget": "ng-homepage:build:development",
+              "serverTarget": "ng-homepage:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

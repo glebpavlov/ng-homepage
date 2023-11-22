@@ -1,7 +1,22 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class LocalStorageService {
+
+  localStorage!: Storage;
+
+  constructor() {
+    if (typeof localStorage === 'undefined') {
+      this.localStorage = {
+        setItem: (_key: string, _value: string) => undefined,
+        getItem: (key: string): string | null => null,
+        removeItem: (key: string) => undefined
+      } as unknown as Storage;
+    } else {
+      this.localStorage = localStorage;
+    }
+  }
+
   static readonly APP_PREFIX = 'NG-AUTH-';
 
   /**
@@ -12,12 +27,12 @@ export class LocalStorageService {
    */
   setItem(key: string, value: unknown) {
     try {
-      localStorage.setItem(
+      this.localStorage.setItem(
         `${LocalStorageService.APP_PREFIX}${key}`,
         JSON.stringify(value)
       );
     } catch (e) {
-      localStorage.setItem(`${LocalStorageService.APP_PREFIX}${key}`, value as string);
+      this.localStorage.setItem(`${LocalStorageService.APP_PREFIX}${key}`, value as string);
     }
   }
 
@@ -28,7 +43,7 @@ export class LocalStorageService {
    * @return {*}  {unknown}
    */
   getItem(key: string): unknown {
-    const value = localStorage.getItem(`${LocalStorageService.APP_PREFIX}${key}`);
+    const value = this.localStorage.getItem(`${LocalStorageService.APP_PREFIX}${key}`);
     try {
       return JSON.parse(value as string);
     } catch (e) {
@@ -42,6 +57,6 @@ export class LocalStorageService {
    * @param {string} key
    */
   removeItem(key: string) {
-    localStorage.removeItem(`${LocalStorageService.APP_PREFIX}${key}`);
+    this.localStorage.removeItem(`${LocalStorageService.APP_PREFIX}${key}`);
   }
 }

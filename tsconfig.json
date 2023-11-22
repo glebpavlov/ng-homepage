@@ -27,7 +27,8 @@
     "strictFunctionTypes": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "allowJs": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

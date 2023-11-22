@@ -3,13 +3,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Inject,
+  Inject, Optional,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { TuiAlertService } from '@taiga-ui/core';
 
 import { Grain } from '../core/effects';
+import { GRAIN_EFFECT_TOKEN } from "../core/tokens/grain.token";
 
 enum PhhhStateEnum {
   Untouched,
@@ -24,7 +25,6 @@ enum PhhhStateEnum {
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [Grain],
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('grain', { static: true })
@@ -39,24 +39,25 @@ export class AppComponent implements AfterViewInit {
   });
 
   constructor(
-    private grain: Grain,
-    @Inject(TuiAlertService) private readonly alerts: TuiAlertService
+    @Inject(TuiAlertService) private readonly alerts: TuiAlertService,
+    @Optional() @Inject(GRAIN_EFFECT_TOKEN) private grain?: Grain,
   ) {
+    console.log(grain);
   }
 
   ngAfterViewInit() {
-    this.grain.setTarget(this.canvas.nativeElement);
+    this.grain?.setTarget(this.canvas.nativeElement);
   }
 
   onClickDontTouch() {
     switch (this.phhhStatus) {
       case PhhhStateEnum.Untouched: {
-        this.grain.start();
+        this.grain?.start();
         this.phhhStatus = PhhhStateEnum.Touched;
         break;
       }
       case PhhhStateEnum.Waiting: {
-        this.grain.stop();
+        this.grain?.stop();
         this.phhhStatus = PhhhStateEnum.End;
         break;
       }

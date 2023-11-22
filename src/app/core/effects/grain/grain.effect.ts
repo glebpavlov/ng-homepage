@@ -3,7 +3,6 @@ import { Inject, Injectable, NgZone } from '@angular/core';
 
 import { WINDOW } from '../../tokens';
 
-@Injectable()
 export class Grain {
   private status: string = 'stop';
 
@@ -59,7 +58,7 @@ export class Grain {
       this.window?.addEventListener('resize', this.resize.bind(this));
       this.resize();
 
-      this.window?.requestAnimationFrame(this.loop.bind(this));
+      this.window?.requestAnimationFrame?.(this.loop.bind(this));
     });
   }
 
