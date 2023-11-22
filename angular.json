@@ -48,9 +48,7 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/marked/marked.min.js"
-            ]
+            "scripts": ["node_modules/marked/marked.min.js"]
           },
           "configurations": {
             "production": {
@@ -160,9 +158,7 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {
@@ -183,8 +179,6 @@
     "cache": {
       "enabled": true
     },
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

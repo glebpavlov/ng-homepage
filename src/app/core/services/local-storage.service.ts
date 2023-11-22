@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-
   localStorage!: Storage;
 
   constructor() {
@@ -10,7 +9,7 @@ export class LocalStorageService {
       this.localStorage = {
         setItem: (_key: string, _value: string) => undefined,
         getItem: (key: string): string | null => null,
-        removeItem: (key: string) => undefined
+        removeItem: (key: string) => undefined,
       } as unknown as Storage;
     } else {
       this.localStorage = localStorage;
@@ -32,7 +31,10 @@ export class LocalStorageService {
         JSON.stringify(value)
       );
     } catch (e) {
-      this.localStorage.setItem(`${LocalStorageService.APP_PREFIX}${key}`, value as string);
+      this.localStorage.setItem(
+        `${LocalStorageService.APP_PREFIX}${key}`,
+        value as string
+      );
     }
   }
 

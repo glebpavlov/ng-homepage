@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './zip-array.component.html',
-  styleUrl: './zip-array.component.scss'
+  styleUrl: './zip-array.component.scss',
 })
-export class ZipArrayComponent {
-
-}
+export class ZipArrayComponent {}

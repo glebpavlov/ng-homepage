@@ -3,20 +3,21 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Inject, Optional,
+  Inject,
+  Optional,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { TuiAlertService } from '@taiga-ui/core';
 
 import { Grain } from '../core/effects';
-import { GRAIN_EFFECT_TOKEN } from "../core/tokens/grain.token";
+import { GRAIN_EFFECT_TOKEN } from '../core/tokens/grain.token';
 
 enum PhhhStateEnum {
   Untouched,
   Touched,
   Waiting,
-  End
+  End,
 }
 
 @Component({
@@ -32,15 +33,18 @@ export class AppComponent implements AfterViewInit {
   phhhStatus = PhhhStateEnum.Untouched;
   phhhEnum = PhhhStateEnum;
 
-  statusProxy: any = new Proxy({}, {
-    get: (target: {}, p, receiver: any): boolean => {
-      return this.phhhStatus.toString() === p;
+  statusProxy: any = new Proxy(
+    {},
+    {
+      get: (target: {}, p, receiver: any): boolean => {
+        return this.phhhStatus.toString() === p;
+      },
     }
-  });
+  );
 
   constructor(
     @Inject(TuiAlertService) private readonly alerts: TuiAlertService,
-    @Optional() @Inject(GRAIN_EFFECT_TOKEN) private grain?: Grain,
+    @Optional() @Inject(GRAIN_EFFECT_TOKEN) private grain?: Grain
   ) {
     console.log(grain);
   }

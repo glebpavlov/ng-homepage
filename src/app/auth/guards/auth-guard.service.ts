@@ -13,7 +13,10 @@ import { selectIsLoggedIn } from '../store/auth.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,

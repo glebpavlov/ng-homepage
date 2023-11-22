@@ -1,7 +1,7 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { inject, InjectionToken, NgZone, PLATFORM_ID } from '@angular/core';
-import { Grain } from "../effects";
-import { WINDOW } from "./window.token";
+import { Grain } from '../effects';
+import { WINDOW } from './window.token';
 
 export const GRAIN_EFFECT_TOKEN = new InjectionToken<Grain | undefined>(
   'An abstraction over Grain Class',

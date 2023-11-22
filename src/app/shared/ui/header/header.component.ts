@@ -6,7 +6,7 @@ import { AuthFacade } from '../../../auth/store/auth.facade';
   selector: 'nh-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   readonly menuItems = [

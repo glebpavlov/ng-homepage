@@ -5,20 +5,26 @@
 
 @import './theme';
 
-
-html, body {
-  &, * {
-    cursor: url(/assets/cursor.svg) 0 0, default !important;
+html,
+body {
+  &,
+  * {
+    cursor:
+      url(/assets/cursor.svg) 0 0,
+      default !important;
   }
 
-  a, button, .nh--cursor-pointer {
-    &, * {
-      cursor: url(/assets/pointer.svg) 0 0, pointer !important;
+  a,
+  button,
+  .nh--cursor-pointer {
+    &,
+    * {
+      cursor:
+        url(/assets/pointer.svg) 0 0,
+        pointer !important;
     }
-
   }
 }
-
 
 // Extend Taiga UI Theme
 :root {
@@ -42,26 +48,32 @@ html, body {
   --tui-link-hover: #8137ff;
 }
 
-
 @keyframes circles {
   0% {
-    box-shadow: 0 8px 10px rgba(249, 92, 24, 0.3), 0 0 0 0 rgba(249, 92, 24, 0.2),
-    0 0 0 0 rgba(249, 92, 24, 0.2);
+    box-shadow:
+      0 8px 10px rgba(249, 92, 24, 0.3),
+      0 0 0 0 rgba(249, 92, 24, 0.2),
+      0 0 0 0 rgba(249, 92, 24, 0.2);
   }
   40% {
-    box-shadow: 0 8px 10px rgba(249, 92, 24, 0.3), 0 0 0 15px rgba(249, 92, 24, 0.2),
-    0 0 0 0 rgba(249, 92, 24, 0.2);
+    box-shadow:
+      0 8px 10px rgba(249, 92, 24, 0.3),
+      0 0 0 15px rgba(249, 92, 24, 0.2),
+      0 0 0 0 rgba(249, 92, 24, 0.2);
   }
   80% {
-    box-shadow: 0 8px 10px rgba(249, 92, 24, 0.3), 0 0 0 30px rgba(249, 92, 24, 0),
-    0 0 0 26.7px rgba(249, 92, 24, 0.067);
+    box-shadow:
+      0 8px 10px rgba(249, 92, 24, 0.3),
+      0 0 0 30px rgba(249, 92, 24, 0),
+      0 0 0 26.7px rgba(249, 92, 24, 0.067);
   }
   100% {
-    box-shadow: 0 8px 10px rgba(249, 92, 24, 0.3), 0 0 0 30px rgba(249, 92, 24, 0),
-    0 0 0 40px rgba(249, 92, 24, 0);
+    box-shadow:
+      0 8px 10px rgba(249, 92, 24, 0.3),
+      0 0 0 30px rgba(249, 92, 24, 0),
+      0 0 0 40px rgba(249, 92, 24, 0);
   }
 }
-
 
 .nh-dots {
   &:after {
@@ -70,7 +82,7 @@ html, body {
     vertical-align: bottom;
     -webkit-animation: ellipsis steps(4, end) 900ms infinite;
     animation: ellipsis steps(4, end) 900ms infinite;
-    content: "\2026";
+    content: '\2026';
     /* ascii code for the ellipsis character */
     width: 0px;
   }

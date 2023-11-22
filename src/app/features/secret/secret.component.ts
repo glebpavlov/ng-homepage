@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 import { AuthFacade } from '../../auth/store/auth.facade';
 import { USERS } from '../../core/fake-api';
-import { CommonModule } from "@angular/common";
-import { TuiButtonModule, TuiLinkModule, TuiNotificationModule } from "@taiga-ui/core";
-import { TuiBadgeModule } from "@taiga-ui/kit";
-import { LetModule, PushModule } from "@ngrx/component";
+import { CommonModule } from '@angular/common';
+import { TuiButtonModule, TuiLinkModule, TuiNotificationModule } from '@taiga-ui/core';
+import { TuiBadgeModule } from '@taiga-ui/kit';
+import { LetModule, PushModule } from '@ngrx/component';
 
 @Component({
   selector: 'nh-secured-feat',
@@ -18,8 +18,8 @@ import { LetModule, PushModule } from "@ngrx/component";
     TuiButtonModule,
     TuiLinkModule,
     LetModule,
-    PushModule
-  ]
+    PushModule,
+  ],
 })
 export class SecretComponent {
   user$ = this.authFacade.user$;

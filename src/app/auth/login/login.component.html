@@ -27,23 +27,26 @@
 
       <div class="tui-form__buttons nh--block">
         <div class="tui-row">
-            <div class="tui-col_6">
-              <button
-                [disabled]="!!(nextTrySeconds$ | async) || !!(isLoading$ | async)"
-                [showLoader]="!!(isLoading$ | async)"
-                class="tui-form__button"
-                size="m"
-                tuiButton
-                type="submit"
-              >
-                Вход
-              </button>
-            </div>
-            <div class="tui-col_6">
-              <tui-loader [size]="'xs'" *ngIf="(nextTrySeconds$ | async) as seconds"
-                          [textContent]="seconds">
-                ПОДОЖДИТЕ
-              </tui-loader>
+          <div class="tui-col_6">
+            <button
+              [disabled]="!!(nextTrySeconds$ | async) || !!(isLoading$ | async)"
+              [showLoader]="!!(isLoading$ | async)"
+              class="tui-form__button"
+              size="m"
+              tuiButton
+              type="submit"
+            >
+              Вход
+            </button>
+          </div>
+          <div class="tui-col_6">
+            <tui-loader
+              [size]="'xs'"
+              *ngIf="nextTrySeconds$ | async as seconds"
+              [textContent]="seconds"
+            >
+              ПОДОЖДИТЕ
+            </tui-loader>
           </div>
         </div>
       </div>

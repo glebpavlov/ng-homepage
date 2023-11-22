@@ -1,12 +1,18 @@
 <tui-root class="content">
-
   <ng-template
-    [tuiAlertOptions]="{label: 'Вы всё раздолбали!', autoClose: false, hasCloseButton: false, status: 'error'}"
-    [(tuiAlert)]="statusProxy[phhhEnum.Touched]">
+    [tuiAlertOptions]="{
+      label: 'Вы всё раздолбали!',
+      autoClose: false,
+      hasCloseButton: false,
+      status: 'error'
+    }"
+    [(tuiAlert)]="statusProxy[phhhEnum.Touched]"
+  >
     <pre><code class="nh-dots"># rm -rf /* </code></pre>
 
-
-    <div style="color: var(--tui-base-05); font-size: 8px">код - шутка. не выполнять!</div>
+    <div style="color: var(--tui-base-05); font-size: 8px">
+      код - шутка. не выполнять!
+    </div>
     <button
       appearance="mono"
       size="s"
@@ -19,27 +25,39 @@
   </ng-template>
 
   <ng-template
-    [tuiAlertOptions]="{label: 'Что будем делать?!', autoClose: false, hasCloseButton: false, status: 'warning'}"
-    [(tuiAlert)]="statusProxy[phhhEnum.Waiting]">
+    [tuiAlertOptions]="{
+      label: 'Что будем делать?!',
+      autoClose: false,
+      hasCloseButton: false,
+      status: 'warning'
+    }"
+    [(tuiAlert)]="statusProxy[phhhEnum.Waiting]"
+  >
     Попробуйте нажать ещё раз!
   </ng-template>
 
   <ng-template
-    [tuiAlertOptions]="{label: '', autoClose: 10000, hasCloseButton: false, status: 'info'}"
-    [(tuiAlert)]="statusProxy[phhhEnum.End]">
+    [tuiAlertOptions]="{
+      label: '',
+      autoClose: 10000,
+      hasCloseButton: false,
+      status: 'info'
+    }"
+    [(tuiAlert)]="statusProxy[phhhEnum.End]"
+  >
     Уберу-ка я кнопку, пока еще что-то не сломали!
   </ng-template>
 
   <canvas #grain id="grain"></canvas>
-  <div *ngIf="phhhStatus === phhhEnum.Untouched || phhhStatus === phhhEnum.Waiting" class="nh-phhhh">
-    <button
-      appearance="textfield"
-      tuiButton
-      type="button"
-      (click)="onClickDontTouch()"
-    >
+  <div
+    *ngIf="phhhStatus === phhhEnum.Untouched || phhhStatus === phhhEnum.Waiting"
+    class="nh-phhhh"
+  >
+    <button appearance="textfield" tuiButton type="button" (click)="onClickDontTouch()">
       <ng-container *ngIf="phhhStatus === phhhEnum.Untouched">НЕ НАЖИМАТЬ!</ng-container>
-      <ng-container *ngIf="phhhStatus === phhhEnum.Waiting">Понятно.. почините скорее!</ng-container>
+      <ng-container *ngIf="phhhStatus === phhhEnum.Waiting"
+        >Понятно.. почините скорее!</ng-container
+      >
     </button>
   </div>
   <nh-header></nh-header>

@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,7 +7,8 @@ import {
   TuiButtonModule,
   TuiDialogModule,
   TuiNotificationModule,
-  TuiRootModule, TuiSvgModule,
+  TuiRootModule,
+  TuiSvgModule,
 } from '@taiga-ui/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,8 +16,8 @@ import { AppComponent } from './app/app.component';
 import { CoreModule } from './core/core.module';
 import { FooterModule } from './shared/ui/footer/footer.module';
 import { HeaderModule } from './shared/ui/header/header.module';
-import { provideMarkdown } from "ngx-markdown";
-import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
+import { provideMarkdown } from 'ngx-markdown';
+import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,12 +41,9 @@ import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
     HeaderModule,
     FooterModule,
     TuiButtonModule,
-    TuiSvgModule
+    TuiSvgModule,
   ],
   bootstrap: [AppComponent],
-  providers: [
-    provideClientHydration(),
-    provideHttpClient(withFetch())
-  ],
+  providers: [provideClientHydration(), provideHttpClient(withFetch())],
 })
 export class AppModule {}
